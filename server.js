@@ -9,7 +9,7 @@ require("pretty-error").start();
 const PORT      = process.env.PORT || 3000;
 
 //MONGO DB CONNECTION
-const mongoURI = 'mongodb://localhost:27017/photo_comments';
+const mongoURI = 'mongodb://localhost:27017/bartenda';
 mongoose.connect(mongoURI, { useMongoClient: true});
 mongoose.Promise = global.Promise;
 
@@ -19,10 +19,10 @@ db.on('error', (err) => console.log(err.message));
 db.on('connected', () => console.log('Mongo running: ', mongoURI));
 
 //CONTROLLERS---------------------
-const regController = require ("/controllers/registration.js")
-const loginController = require("/controllers/login.js")
-const postController = require("/controllers/posts.js");
-const commController = require("/controllers/comments.js")
+// const regController = require ("/controllers/registration.js")
+// const loginController = require("/controllers/login.js")
+const postController = require("./controllers/posts.js");
+// const commController = require("/controllers/comments.js")
 //OTHER CONTROLLERS?----------------
 
 //MIDDLEWARE
@@ -30,13 +30,13 @@ app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 app.use(express.static("public"));
 app.use(morgan('dev'));
-app.use('/register', regController);
-app.use('/login', loginController);
-app.use('/home', postController);
-app.use('/comment', commController);
+// app.use('/register', regController);
+// app.use('/login', loginController);
+app.use('/bartenda', postController);
+// app.use('/comment', commController);
 
 //ROOT DIRECTORY
-app.get('/', (req, res) => res.redirect('/home'));
+app.get('/', (req, res) => res.redirect("/bartenda"));
 
 //LISTENER
 app.listen(PORT, () =>console.log("Running on port: ", PORT));
