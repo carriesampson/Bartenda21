@@ -5,6 +5,34 @@
     <title>Add New Post</title>
   </head>
   <body>
-
+    <header>
+      <h1>BARTENDA 21</h1>
+      <h3>DISCOVER & SHARE</h3>
+    </header>
+    <nav>
+      <a href='#'>log in</a>
+      <a href='#'>register</a>
+      <a href='#'>about</a>
+    </nav>
+    <main>
+      <form action='/new' method='POST'>
+        <p>Enter your image URL*</p>
+        <input type='text' name='url' placeholder='Enter URL'/>
+        <p>Name of the bevvy?*</p>
+        <input type='text' name='drinkName' placeholder='Enter the drink name'/>
+        <p>Submitted by?*</p>
+        <input type='text' name='submittedBy' placeholder='Enter your username'/>
+        <p>Ingredients</p>
+        <input type='text' name='ingredients' placeholder='Your drink is made of...?'/>
+        <p>Where did you have this bevvy?</p>
+        <input type='text' name='locationName' placeholder='Business name?'/>
+        <p>What city did you drink it in?</p>
+        <input type='text' name='locationCity' placeholder='City of business?'/>
+        <p>And the state? Not mental state, actual US state:</p>
+        <input type='text' name='locationState' placeholder='Enter US state'/>
+        <p>The cost in dollars and cents, not brain cells:</p>
+        <input type='number' name='price' placeholder='Price'/>
+        <input type='text' name='yourComments' placeholder='Comment on your drink'/>
+        <p><button>Submit</button></p>
   </body>
 </html>
