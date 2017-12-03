@@ -1,8 +1,9 @@
 //DEPENDENCIES
-const express   = require('express');
-const mongoose  = require('mongoose');
-const morgan    = require('morgan');
-const app       = express();
+const express         = require('express');
+const mongoose        = require('mongoose')
+const methodOverride  = require('method-override');
+const morgan          = require('morgan');
+const app             = express();
 require('pretty-error').start();
 
 //CONFIG
@@ -29,6 +30,7 @@ const commController = require('./controllers/comments.js');
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 app.use(express.static('public'));
+app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 // app.use('/bartenda/register', regController);
 // app.use('/bartenda/login', loginController);

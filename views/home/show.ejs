@@ -16,11 +16,13 @@
     </nav>
     <main>
 
-      <p><a href='/bartenda/new'>Add a drink to the bar</a></p
+      <p><a href='/bartenda/new'>Add a drink to the bar</a></p>
+      <p><a href='/bartenda/<%= onePost.id %>/edit'>Edit your post</a></p>
       <div class="mainPost">
         <img src="<%= onePost.url %>">
         <h3><%= onePost.drinkName %></h3>
         <h4><%= onePost.submittedBy %></h4>
+        <p><%= onePost.ingredients %></p>
         <p><%= onePost.locationName %></p>
         <p><%= onePost.locationCity %></p>
         <p><%= onePost.locationState %></p>
