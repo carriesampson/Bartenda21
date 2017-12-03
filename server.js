@@ -1,9 +1,9 @@
 //DEPENDENCIES
-const express   = require("express");
-const mongoose  = require("mongoose");
-const morgan    = require("morgan");
+const express   = require('express');
+const mongoose  = require('mongoose');
+const morgan    = require('morgan');
 const app       = express();
-require("pretty-error").start();
+require('pretty-error').start();
 
 //CONFIG
 const PORT      = process.env.PORT || 3000;
@@ -19,24 +19,24 @@ db.on('error', (err) => console.log(err.message));
 db.on('connected', () => console.log('Mongo running: ', mongoURI));
 
 //CONTROLLERS---------------------
-// const regController = require ("/controllers/registration.js")
-// const loginController = require("/controllers/login.js")
-const postController = require("./controllers/posts.js");
-// const commController = require("/controllers/comments.js")
+// const regController = require ('./controllers/registration.js);
+// const loginController = require('./controllers/login.js');
+const postController = require('./controllers/posts.js');
+const commController = require('./controllers/comments.js');
 //OTHER CONTROLLERS?----------------
 
 //MIDDLEWARE
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static('public'));
 app.use(morgan('dev'));
-// app.use('/register', regController);
-// app.use('/login', loginController);
+// app.use('/bartenda/register', regController);
+// app.use('/bartenda/login', loginController);
 app.use('/bartenda', postController);
-// app.use('/comment', commController);
+app.use('/bartenda/comments', commController);
 
 //ROOT DIRECTORY
-app.get('/', (req, res) => res.redirect("/bartenda"));
+app.get('/', (req, res) => res.redirect('/bartenda'));
 
 //LISTENER
-app.listen(PORT, () =>console.log("Running on port: ", PORT));
+app.listen(PORT, () =>console.log('Running on port: ', PORT));

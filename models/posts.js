@@ -7,10 +7,10 @@ const postSchema = mongoose.Schema({
   drinkName: {type: String, require: true},
   submittedBy: {type: String, require: true},
   ingredients: String,
-  locationName: String,
-  locationCity: String,
-  locationState: String,
-  price: Number,
+  locationName: {type: String, require: true},
+  locationCity: {type: String, require: true},
+  locationState: {type: String, require: true},
+  price: {type: Number, require: true},
   yourComments: String
 });
 
