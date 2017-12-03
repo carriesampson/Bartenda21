@@ -56,5 +56,15 @@ router.put('/:id', async (req, res) => {
   };
 });
 
+//DELETE ROUTE
+router.delete('/:id', async (req, res) => {
+  try {
+    await Posts.findByIdAndRemove(req.params.id);
+    res.redirect('/bartenda');
+  } catch (err) {
+    res.send(err.message);
+  };
+});
+
 //EXPORTS
 module.exports = router;
