@@ -5,6 +5,27 @@
     <title>Bartenda Home</title>
   </head>
   <body>
+    <header>
+      <h1>BARTENDA 21</h1>
+      <h3>DISCOVER & SHARE</h3>
+    </header>
+    <nav>
+      <a href="#">log in</a>
+      <a href="#">register</a>
+      <a href="#">about</a>
+    </nav>
+    <main>
+      <div class="col1"></div>
+      <div class="col2">
+        <% for (let post of allPosts) { %>
+          <a href="/bartenda/<%= post._id %>"><img src="<%= post.url %>"></a>
+          <h3><%= post.drinkName %></h3>
+          <h4><%= post.submittedBy %></h4>
+        <% } %>
+      </div>
+    </main>
+    <footer>
+    </footer>
 
   </body>
 </html>
