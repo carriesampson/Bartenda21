@@ -22,12 +22,12 @@ router.post("/", async (req, res) => {
   }
 });
 
-// //SHOW ROUTE
-// router.get('/:id', async (req, res) => {
-//   const onePost = await Posts.findById(req.params.id);
-//   const comments = await Comments.find({post: onePost._id});
-//   res.render("../views/home/show.ejs", {onePost, comments});
-// });
+//SHOW ROUTE
+router.get('/:id', async (req, res) => {
+  const onePost = await Posts.findById(req.params.id);
+  const comments = await Comments.find({post: onePost._id});
+  res.render("../views/home/show.ejs", {onePost, comments});
+});
 
 //----------------------------------------------------
 //EXPORTS
