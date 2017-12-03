@@ -33,7 +33,7 @@ app.use(morgan('dev'));
 // app.use('/bartenda/register', regController);
 // app.use('/bartenda/login', loginController);
 app.use('/bartenda', postController);
-app.use('/bartenda/comments', commController);
+app.use('/comments', commController);
 
 //ROOT DIRECTORY
 app.get('/', (req, res) => res.redirect('/bartenda'));

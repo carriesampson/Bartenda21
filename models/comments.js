@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const commentsSchema = mongoose.Schema({
   submittedBy: {type: String, required: true},
   content: {type: String, required: true},
-  post: {type: mongoose.Schema.Types.ObjectId, ref: "Photo", required: true}
+  post: {type: mongoose.Schema.Types.ObjectId, ref: "Posts", required: true}
 });
 
 //EXPORTS

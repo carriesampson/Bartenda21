@@ -6,7 +6,7 @@ const router  = express.Router();
 
 //MODELS
 const Posts = require('../models/posts.js');
-// const Comments = require("../models/comments.js");
+const Comments = require("../models/comments.js");
 
 //INDEX ROUTE
 router.get('/', async (req, res) => {
@@ -24,18 +24,19 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const onePost = await Posts.findById(req.params.id);
   const comments = await Comments.find({post: onePost._id});
+  res.send({onePost, comments});
   // res.render("../views/home/show.ejs", {onePost, comments});
 });
 
-// //DB SEEDED CREATE ROUTE
-// router.post('/', async (req, res) => {
-//   try {
-//     const createdPost = await Posts.create(req.body);
-//     res.redirect('back');
-//   } catch (err) {
-//     res.send(err.message);
-//   }
-// });
+//DB SEEDED CREATE ROUTE
+router.post('/', async (req, res) => {
+  try {
+    const createdPost = await Posts.create(req.body);
+    res.redirect('back');
+  } catch (err) {
+    res.send(err.message);
+  }
+});
 
 //EXPORTS
 module.exports = router;
