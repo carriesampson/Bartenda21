@@ -9,7 +9,7 @@ const app             = express();
 require('pretty-error').start();
 
 //CONFIG
-const PORT      = process.env.PORT || 3000;
+const PORT            = process.env.PORT || 3000;
 
 //MONGO DB CONNECTION
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/bartenda';
