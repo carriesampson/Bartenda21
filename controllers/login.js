@@ -1,36 +1,47 @@
-//LOGIN CONTROLLER
+const express         = require('express');
+const bcrypt          = require('bcrypt');
+const router          = express.Router();
+const Login           = require('../models/login.js');
 
-//DEPENDENCIES
-const express = require('express');
-const bcrypt  = require('bcrypt');
-const router  = express.Router();
-
-//MODELS
-const Posts = require('../models/posts.js');
-const Comments = require('../models/comments.js');
-const Login = require('../models/login.js');
-// const Register = require('../models/reg.js')
-
-//LOGIN GET
-router.get('/bartenda/login', (req, res) => {
- res.render('../views/users/login.ejs');
+//LOGIN-----------------------------------------------
+//GET LOGIN.EJS  ROUTE
+router.get ('/login', (req, res) => {
+  res.render('../views/users/login.ejs');
 });
 
-//LOGIN POST
-router.post('/login', async (req, res) => {
+//POST USER/PASS CREDENTIALS FOR LOGIN AUTHENTICATION
+router.post ('/login', async (req, res) => {
   try {
-    const login = await Login.findOne({username: req.body.username});
-    if (bcrypt.compareSync(req.body.password, login.password)) {
+    const user = await Login.findOne({username: req.body.username});
+    if (bcrypt.compareSync(req.body.password, user.password)) {
       req.session.username = req.body.username;
       req.session.logged = true;
+      req.session.message = 'Login success!'
+      console.log(req.session, req.body);
       res.redirect('/');
-    } else {
-      req.session.message = 'Invalid username or password';
-      res.redirct('/login');
+      } else {
+        console.log('User login fail bcrypt compare.');
+        req.session.message = "Invalid username or password. Please try again.";
+        res.redirect('/login');
     };
   } catch (err) {
-    res.send(err.message);
+    req.session.message = "Something went wrong. Please try again."
+    console.log("Something went wrong.");
+    res.redirect('/login');
   };
 });
 
+//LOGOUT----------------------------------------------
+router.get ('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
+
+//ADD LOGIN VARIABLES---------------------------------------
+router.get('update', (req, res) => {
+  req.session.dash = true;
+  console.log(req.session);
+});
+
+//EXPORT----------------------------------------------
 module.exports = router;
