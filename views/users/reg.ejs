@@ -1,0 +1,35 @@
+
+<%# <!DOCTYPE html>%>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Register Page</title>
+  </head>
+  <body>
+    <header>
+      <h1>BARTENDA 21</h1>
+      <h3>DISCOVER & SHARE</h3>
+    </header>
+    <nav>
+      <a href='#'>log in</a>
+      <a href='#'>register</a>
+      <a href='#'>about</a>
+    </nav>
+    <main>
+      <h2>Register</h2>
+      <form action='/bartenda/register' method="POST">
+        <p>Enter your email address</p>
+        <input name='<%= emailAddress %>'/>
+        <p>Re-type your email address</p>
+        <input name='<%= retypeEmailAddress %>'/>
+        <p>Enter a username</p>
+        <input name='<%= username %>'/>
+        <p>Enter a password</p>
+        <input name='<%= password %>'/>
+        <p>Re-type your password</p>
+        <input name='<%= retypePassword %>'/>
+        <button type='submit'>Register</button>
+      </form>
+    </main>
+  </body>
+</html>
