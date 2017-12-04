@@ -12,7 +12,7 @@ require('pretty-error').start();
 const PORT      = process.env.PORT || 3000;
 
 //MONGO DB CONNECTION
-const mongoURI = 'mongodb://localhost:27017/bartenda';
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/bartenda';
 mongoose.connect(mongoURI, { useMongoClient: true});
 mongoose.Promise = global.Promise;
 
