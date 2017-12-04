@@ -1,10 +1,10 @@
 //DEPENDENCIES
 const mongoose = require("mongoose");
 
-//LOG IN SCHEMA
+//LOGIN SCHEMA
 const loginSchema = mongoose.Schema({
+  emailAddress: {type:String, require: true},
   username: {type: String, require: true},
-  password: {type: String, require: true}
 });
 
 //EXPORTS
