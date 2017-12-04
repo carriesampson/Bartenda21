@@ -2,47 +2,52 @@
 
 body {
   background-color: #0000;
+  max-width: 1000px;
+  margin: auto;
 }
 
-/*
-Background video coding referenced and leveraged from:
-http://thenewcode.com/777/Create-Fullscreen-HTML5-Page-Background-Video
-*/
+video {
+  min-width: 100%;
+  z-index: -100;
+}
 
-#headerVid {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    max-height: 800%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    background: url(whiskey.jpg) no-repeat;
-    background-size: cover;
+header {
+  background-color: #FFF;
+  opacity: .8;
+  margin-top: -180px;
+
 }
 
 .title {
   font-family: 'Aclonica', sans-serif;
-  font-size: 42px;
-  margin-top: 0px;
+  font-size: 40px;
   margin-bottom: 0px;
-  padding-top: 50px;
-  color: #000;
+  margin-top: 0px;
+  padding-top: 70px;
+  padding-left: 50px;
 }
 
 .subtitle {
   font-family: 'Aclonica', sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   margin-top: 0px;
-  padding-left: 39px;
-  color: #000;
+  margin-bottom: 0px;
+  padding-left: 50px;
+  padding-bottom: 15px;
+}
+
+.thickRule {
+  margin-top: 0px;
+  background: #000;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: #FFF;
 }
 
 main {
-  z-index: 1;
+  padding-left: 50px;
 }

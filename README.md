@@ -1,2 +1,2 @@
 # Bartenda
-Full Stack [MEN] Application: Bartending - Creating and sharing specialty cocktails
+Full Stack [MEAN] Application: Bartenda- Discovering and sharing great (and terrible) 21+ drinks 
