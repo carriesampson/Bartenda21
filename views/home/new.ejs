@@ -3,17 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Add New Post</title>
+    <link rel='stylesheet' type='text/css' href='/../../css/header.css'>
+    <link href="https://fonts.googleapis.com/css?family=Aclonica" rel='stylesheet'>
   </head>
   <body>
-    <header>
-      <h1>BARTENDA 21</h1>
-      <h3>DISCOVER & SHARE</h3>
-    </header>
-    <nav>
-      <a href='#'>log in</a>
-      <a href='#'>register</a>
-      <a href='#'>about</a>
-    </nav>
+    <% include ../partials/header.ejs %>
     <main>
       <form action='/bartenda' method='POST'>
         <h1>Add your drink</h1>

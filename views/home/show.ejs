@@ -3,19 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Post Details</title>
+    <link rel='stylesheet' type='text/css' href='/../../css/header.css'>
+    <link href="https://fonts.googleapis.com/css?family=Aclonica" rel='stylesheet'>
   </head>
   <body>
-    <header>
-      <h1>BARTENDA 21</h1>
-      <h3>DISCOVER & SHARE</h3>
-    </header>
-    <nav>
-      <a href="#">log in</a>
-      <a href="#">register</a>
-      <a href="#">about</a>
-    </nav>
+    <% include ../partials/header.ejs %>
     <main>
-
       <p><a href='/bartenda/new'>Add a drink to the bar</a></p>
       <p><a href='/bartenda/<%= onePost.id %>/edit'>Edit your post</a></p>
       <form action="/bartenda/<%=onePost.id%>?_method=DELETE" method="POST">
