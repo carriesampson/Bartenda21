@@ -1,0 +1,35 @@
+{
+  "name": "bartenda",
+  "version": "1.0.0",
+  "description": "Full Stack [MEAN] Application: Bartenda- Discovering and sharing great (and terrible) 21+ drinks",
+  "main": "server.js",
+  "dependencies": {
+    "angular": "^1.6.7",
+    "bcrypt": "^1.0.3",
+    "bsync": "^0.0.7",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "method-override": "^2.3.10",
+    "mongoose": "^4.13.5",
+    "mongoose-timestamp": "^0.6.0",
+    "morgan": "^1.9.0",
+    "pretty-error": "^2.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carriesampson/Bartenda.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carriesampson/Bartenda/issues"
+  },
+  "homepage": "https://github.com/carriesampson/Bartenda#readme"
+}
