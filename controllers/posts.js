@@ -11,7 +11,11 @@ const Comments = require('../models/comments.js');
 //INDEX (GET POSTS) ROUTE
 router.get('/', async (req, res) => {
   const allPosts = await Posts.find();
-  res.render('../views/home/index.ejs', { allPosts });
+  if (req.session.logged) {
+    res.render('../views/home/index.ejs', {post: allPosts, username: req.session.username});
+  } else {
+    res.redirect('/login');
+  };
 });
 
 //CREATE NEW
@@ -33,14 +37,14 @@ router.post('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const onePost = await Posts.findById(req.params.id);
   const comments = await Comments.find({post: onePost._id});
-  res.render('../views/home/show.ejs', {onePost, comments});
+  res.render('../views/home/show.ejs', {onePost: onePost, comments: comments, username: req.session.username});
 });
 
 //EDIT (GET) ROUTE
 router.get('/:id/edit', async (req, res) => {
   try {
     const post = await Posts.findById(req.params.id);
-    res.render('../views/home/edit.ejs', {post: post});
+    res.render('../views/home/edit.ejs', {post: post, username: req.session.username});
   } catch (err) {
     res.send('Invalid');
   };
