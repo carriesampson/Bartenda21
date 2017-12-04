@@ -1,27 +1,19 @@
-
-<%# <!DOCTYPE html>%>
+<%# <!DOCTYPE ejs>%>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Register Page</title>
+    <meta charset='utf-8'>
+    <title>Bartenda Home</title>
+    <link rel='stylesheet' type='text/css' href='/../../css/header.css'>
+    <link href="https://fonts.googleapis.com/css?family=Aclonica" rel='stylesheet'>
   </head>
   <body>
-    <header>
-      <h1>BARTENDA 21</h1>
-      <h3>DISCOVER & SHARE</h3>
-    </header>
-    <nav>
-      <a href='#'>log in</a>
-      <a href='#'>register</a>
-      <a href='#'>about</a>
-    </nav>
+    <%# Created partial for header content%>
+    <% include ../partials/header.ejs %>
     <main>
-      <h2>Register</h2>
-      <form action='/bartenda/register' method="POST">
+      <h3>User Registration</h3>
+      <form action="/register" method="POST">
         <p>Enter your email address</p>
         <input name='<%= emailAddress %>'/>
-        <p>Re-type your email address</p>
-        <input name='<%= retypeEmailAddress %>'/>
         <p>Enter a username</p>
         <input name='<%= username %>'/>
         <p>Enter a password</p>
@@ -31,5 +23,7 @@
         <button type='submit'>Register</button>
       </form>
     </main>
+    <footer>
+    </footer>
   </body>
 </html>
