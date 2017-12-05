@@ -10,11 +10,11 @@ const Comments = require('../models/comments.js');
 
 //INDEX (GET POSTS) ROUTE
 router.get('/', async (req, res) => {
-  const allPosts = await Posts.find();
-  if (req.session.logged) {
-    res.render('../views/home/index.ejs', {post: allPosts, username: req.session.username});
+const allPosts = await Posts.find();
+  if (req.session.logged = true) {
+  res.render('../views/home/index.ejs', {allPosts: allPosts, username: req.session.username})
   } else {
-    res.redirect('/login');
+  res.redirect('/login');
   };
 });
 
@@ -30,21 +30,21 @@ router.post('/', async (req, res) => {
     res.redirect('back');
   } catch (err) {
     res.send(err.message);
-  }
+  };
 });
 
 //SHOW ROUTE
 router.get('/:id', async (req, res) => {
   const onePost = await Posts.findById(req.params.id);
   const comments = await Comments.find({post: onePost._id});
-  res.render('../views/home/show.ejs', {onePost: onePost, comments: comments, username: req.session.username});
+  res.render('../views/home/show.ejs', {onePost: onePost, comments: comments, username: req.session.username})
 });
 
 //EDIT (GET) ROUTE
 router.get('/:id/edit', async (req, res) => {
   try {
     const post = await Posts.findById(req.params.id);
-    res.render('../views/home/edit.ejs', {post: post, username: req.session.username});
+    res.render('../views/home/edit.ejs', {post: post, username: req.session.username})
   } catch (err) {
     res.send('Invalid');
   };

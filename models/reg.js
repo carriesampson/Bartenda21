@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 //REGISTRATION SCHEMA
-const regSchema = mongoose.Schema({
+const regSchema = new mongoose.Schema({
   emailAddress: {type:String, require: true},
   username: {type: String, require: true},
   password: {type: String, require: true},

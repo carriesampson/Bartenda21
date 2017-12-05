@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 //LOGIN SCHEMA
-const loginSchema = mongoose.Schema({
+const loginSchema = new mongoose.Schema({
   emailAddress: {type:String, require: true},
   username: {type: String, require: true},
 });
