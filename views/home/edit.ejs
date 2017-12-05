@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <title>Update Post</title>
     <link rel='stylesheet' type='text/css' href='/../../css/header.css'>
+    <link rel='stylesheet' type='text/css' href='/../../css/footer.css'>
     <link href="https://fonts.googleapis.com/css?family=Aclonica" rel='stylesheet'>
   </head>
   <body>
+    <%# Created partial for header content%>
     <% include ../partials/header.ejs %>
     <main>
       <form action='/bartenda/<%= post.id %>?_method=PUT', method='POST'>
@@ -30,6 +32,9 @@
         <p>Comment on your drink</p>
         <input type='text' name='yourComments' value='<%= post.yourComments %>'/>
         <p><button>Submit</button></p>
+      </form>
     </main>
+    <%# Created partial for footer content%>
+    <% include ../partials/footer.ejs %>
   </body>
 </html>
