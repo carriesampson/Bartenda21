@@ -6,7 +6,7 @@ const bcrypt          = require('bcrypt');
 const router          = express.Router();
 
 //MODELS
-const Login = require('../models/login.js');
+const Users = require('../models/users.js');
 
 //GET ROUTE
 router.get ('/', (req, res) => {
@@ -14,12 +14,13 @@ router.get ('/', (req, res) => {
 });
 
 //POST ROUTE
-router.post ('/login', async (req, res) => {
-  const user = await Login.findOne({username: req.body.username});
+router.post ('/', async (req, res) => {
+  const user = await Users.findOne({username: req.body.username});
+  console.log(user);
   if (bcrypt.compareSync(req.body.password, user.password)) {
       req.session.username = req.body.username;
       req.session.logged = true;
-      console.log("Req Session/Body: ", req.session, req.body);
+      // console.log("Req Session/Body: ", req.session, req.body);
       console.log("Login success");
       res.redirect('/');
       } else {

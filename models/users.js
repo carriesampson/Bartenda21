@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 //REGISTRATION SCHEMA
-const regSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   emailAddress: {type:String, require: true},
   username: {type: String, require: true},
   password: {type: String, require: true},
@@ -10,4 +10,4 @@ const regSchema = new mongoose.Schema({
 });
 
 //EXPORTS
-module.exports = mongoose.model("Reg", regSchema);
+module.exports = mongoose.model("Users", userSchema);

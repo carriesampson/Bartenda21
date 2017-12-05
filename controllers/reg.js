@@ -6,7 +6,7 @@ const bcrypt          = require('bcrypt');
 const router          = express.Router();
 
 //MODELS
-const Reg             = require('../models/reg.js');
+const Users             = require('../models/users.js');
 
 //GET ROUTE
 router.get('/', (req, res) => {
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 //POST ROUTE ENCRYPTION
-router.post('/register', async (req, res) => {
+router.post('/', async (req, res) => {
   const emailAddress = req.body.emailAddress;
   const emailAddressHash = bcrypt.hashSync(emailAddress, bcrypt.genSaltSync(10));
   const password = req.body.password;
@@ -30,10 +30,10 @@ router.post('/register', async (req, res) => {
 
   //UPLOAD MONGO DB OBJECT
   try {
-    const upload = await Reg.create(userDbEntry);
-    console.log("Load: ", upload);
-    req.session.username = load.username;
+    const upload = await Users.create(userDbEntry);
+    req.session.username = upload.username;
     req.session.logged = true;
+    res.redirect("/");
   } catch (err) {
     res.send(err.message);
   }

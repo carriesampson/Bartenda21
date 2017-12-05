@@ -33,15 +33,15 @@ video {
   margin-top: 0px;
   margin-bottom: 0px;
   padding-left: 50px;
-  padding-bottom: 16px;
+  padding-bottom: 14px;
 }
 
 nav {
   display: flex;
   flex-direction: row;
-  margin-top: 0px;
+  margin-top: -px;
   background: #000;
-  padding-top: 10px;
+  padding-top: 12px;
   padding-bottom: 10px;
 }
 
