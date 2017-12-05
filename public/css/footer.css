@@ -1,0 +1,52 @@
+/*font-family: 'Aclonica', sans-serif;*/
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  margin-top: -px;
+  background: #000;
+  padding-top: 12px;
+  padding-bottom: 10px;
+}
+
+hr {
+  margin: 0px;
+  padding-top: 10px;
+}
+
+.privacy {
+  font-family: 'Aclonica', sans-serif;
+  font-size: 12px;
+  padding-top: 10px;
+  padding-left: 50px;
+  padding-right: 40px;
+  vertical-align: bottom;
+  text-decoration: none;
+  color: #fff;
+}
+
+.terms {
+  font-family: 'Aclonica', sans-serif;
+  font-size: 12px;
+  padding-top: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  vertical-align: bottom;
+  text-decoration: none;
+  color: #fff;
+}
+
+.support{
+  font-family: 'Aclonica', sans-serif;
+  font-size: 12px;
+  padding-top: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  vertical-align: bottom;
+  text-decoration: none;
+  color: #fff;
+}
+
+main {
+  padding-left: 50px;
+}
