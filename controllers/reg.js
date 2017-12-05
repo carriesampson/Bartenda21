@@ -9,7 +9,7 @@ const router          = express.Router();
 const Reg             = require('../models/reg.js');
 
 //GET ROUTE
-router.get('/register', (req, res) => {
+router.get('/', (req, res) => {
   res.render('../views/users/reg.ejs');
 });
 
