@@ -24,14 +24,13 @@ router.post('/', async (req, res) => {
 
   //CREATE MONGO DB OBJECT
   const userDbEntry = {};
-  userDbEntry.username = req.body.username;
   userDbEntry.emailAddress = emailAddressHash;
   userDbEntry.password = passwordHash;
 
   //UPLOAD MONGO DB OBJECT
   try {
     const upload = await Users.create(userDbEntry);
-    req.session.username = upload.username;
+    req.session.emailAddress = upload.emailAddress;
     req.session.logged = true;
     res.redirect("/");
   } catch (err) {

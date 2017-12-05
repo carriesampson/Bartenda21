@@ -12,7 +12,7 @@ const Comments = require('../models/comments.js');
 router.get('/', async (req, res) => {
 const allPosts = await Posts.find();
   if (req.session.logged = true) {
-  res.render('../views/home/index.ejs', {allPosts: allPosts, username: req.session.username})
+  res.render('../views/home/index.ejs', {allPosts: allPosts, emailAddress: req.session.emailAddress})
   } else {
   res.redirect('/login');
   };
@@ -37,14 +37,14 @@ router.post('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const onePost = await Posts.findById(req.params.id);
   const comments = await Comments.find({post: onePost._id});
-  res.render('../views/home/show.ejs', {onePost: onePost, comments: comments, username: req.session.username})
+  res.render('../views/home/show.ejs', {onePost: onePost, comments: comments, emailAddress: req.session.emailAddress})
 });
 
 //EDIT (GET) ROUTE
 router.get('/:id/edit', async (req, res) => {
   try {
     const post = await Posts.findById(req.params.id);
-    res.render('../views/home/edit.ejs', {post: post, username: req.session.username})
+    res.render('../views/home/edit.ejs', {post: post, emailAddress: req.emailAddress})
   } catch (err) {
     res.send('Invalid');
   };
