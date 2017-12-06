@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 //POST SCHEMA
 const postSchema = mongoose.Schema({
-  url: {type: String, require: true},
+  img: {type: String, require: true},
   drinkName: {type: String, require: true},
   submittedBy: {type: String, require: true},
   ingredients: String,

@@ -19,6 +19,7 @@ router.post ('/', async (req, res) => {
   console.log(user);
   if (bcrypt.compareSync(req.body.password, user.password)) {
       req.session.emailAddress = req.body.emailAddress;
+      req.session.username = req.body.username;
       req.session.logged = true;
       // console.log("Req Session/Body: ", req.session, req.body);
       console.log("Login success");

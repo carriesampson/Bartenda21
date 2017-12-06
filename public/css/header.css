@@ -42,7 +42,7 @@ video {
 nav {
   display: flex;
   flex-direction: row;
-  margin-top: -px;
+  margin-top: 0px;
   background: #000;
   padding-top: 12px;
   padding-bottom: 10px;
@@ -51,6 +51,8 @@ nav {
 hr {
   margin: 0px;
   padding-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 a {
@@ -62,7 +64,7 @@ a {
   font-size: 16px;
   padding-top: 10px;
   padding-left: 50px;
-  padding-right: 40px;
+  padding-right: 20px;
   vertical-align: bottom;
   text-decoration: none;
   color: #fff;
@@ -72,8 +74,8 @@ a {
   font-family: 'Aclonica', sans-serif;
   font-size: 16px;
   padding-top: 10px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
   vertical-align: bottom;
   text-decoration: none;
   color: #fff;

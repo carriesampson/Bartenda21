@@ -8,8 +8,8 @@
     <main>
       <form action='/bartenda/<%= post.id %>?_method=PUT', method='POST'>
         <h1>Edit your post</h1>
-        <p>Enter your image URL*</p>
-        <input type='text' name='url' value='<%= post.url %>'/>
+        <p>Upload a photo</p>
+        <input type='text' name='img' value='<%= post.img %>'/>
         <p>Name of the bevvy?*</p>
         <input type='text' name='drinkName' value='<%= post.drinkName %>'/>
         <p>Submitted by?*</p>
