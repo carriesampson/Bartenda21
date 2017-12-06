@@ -6,7 +6,7 @@ const bcrypt          = require('bcrypt');
 const router          = express.Router();
 
 //MODELS
-const Users             = require('../models/users.js');
+const Users           = require('../models/users.js');
 
 //GET ROUTE
 router.get('/', (req, res) => {

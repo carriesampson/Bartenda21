@@ -9,13 +9,14 @@ const Posts = require('../models/posts.js');
 const Comments = require('../models/comments.js');
 
 //INDEX (GET POSTS) ROUTE
+//MODIFIED TO PROVIDE IF STATEMENT WITH LAUNCH TO 
 router.get('/', async (req, res) => {
-const allPosts = await Posts.find();
-  if (req.session.logged = true) {
-  res.render('../views/home/index.ejs', {allPosts: allPosts, emailAddress: req.session.emailAddress, username: req.session.username})
-  } else {
-  res.redirect('/login');
-  };
+  const allPosts = await Posts.find();
+      if (req.session.logged = true) {
+        res.render('../views/users/profile.ejs', {allPosts: allPosts, emailAddress: req.session.emailAddress, username: req.session.username})
+      } else {
+      res.render('../views/home/index.ejs', {allPosts: allPosts})
+    };
 });
 
 //CREATE NEW
@@ -23,15 +24,15 @@ router.get('/new', (req, res) => {
   res.render('../views/home/new.ejs');
 });
 
-//DB SEEDED CREATE ROUTE
-router.post('/', async (req, res) => {
-  try {
-    const createdPost = await Posts.create(req.body);
-    res.redirect('back');
-  } catch (err) {
-    res.send(err.message);
-  };
-});
+// //DB SEEDED CREATE ROUTE
+// router.post('/', async (req, res) => {
+//   try {
+//     const createdPost = await Posts.create(req.body);
+//     res.redirect('back');
+//   } catch (err) {
+//     res.send(err.message);
+//   };
+// });
 
 //SHOW ROUTE
 router.get('/:id', async (req, res) => {

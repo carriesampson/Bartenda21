@@ -15,11 +15,11 @@ router.get ('/', (req, res) => {
 
 //POST ROUTE
 router.post ('/', async (req, res) => {
-  const user = await Users.findOne({emailAddress: req.body.emailAddress});
+  const user = await Users.findOne({username: req.body.username});
   console.log(user);
   if (bcrypt.compareSync(req.body.password, user.password)) {
-      req.session.emailAddress = req.body.emailAddress;
       req.session.username = req.body.username;
+      req.session.emailAddress = req.body.emailAddress;
       req.session.logged = true;
       // console.log("Req Session/Body: ", req.session, req.body);
       console.log("Login success");

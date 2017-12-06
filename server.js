@@ -23,11 +23,10 @@ db.on('error', (err) => console.log(err.message));
 db.on('connected', () => console.log('Mongo running: ', mongoURI));
 
 //CONTROLLERS---------------------
-const postController = require('./controllers/posts.js');
-const commController = require('./controllers/comments.js');
-const loginController = require('./controllers/login.js');
-const regController = require('./controllers/reg.js');
-//OTHER CONTROLLERS?----------------
+const postController    = require('./controllers/posts.js');
+const commController    = require('./controllers/comments.js');
+const loginController   = require('./controllers/login.js');
+const regController     = require('./controllers/reg.js');
 
 //ROOT DIRECTORY
 app.get('/', (req, res) => res.redirect('/bartenda'));
@@ -52,7 +51,7 @@ app.use('/register', regController);
 const hashedStringP = bcrypt.hashSync('<%= password %>', bcrypt.genSaltSync(10));
 console.log(hashedStringP);
 
-//PASSWORD ENCRYPTION------------------
+//EMAIL ADDRESS ENCRYPTION------------------
 const hashedStringE = bcrypt.hashSync('<%= emailAddress %>', bcrypt.genSaltSync(10));
 console.log(hashedStringE);
 
