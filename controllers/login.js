@@ -30,11 +30,11 @@ router.post ('/', async (req, res) => {
     };
 });
 
-// //LOGOUT----------------------------------------------
-// router.get ('/logout', (req, res) => {
-//   req.session.destroy();
-//   res.redirect('/');
-// });
+//LOGOUT----------------------------------------------
+router.delete ('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
 
 // //ADD LOGIN VARIABLES---------------------------------------
 // router.get('update', (req, res) => {

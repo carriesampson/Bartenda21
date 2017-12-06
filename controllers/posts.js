@@ -9,7 +9,7 @@ const Posts = require('../models/posts.js');
 const Comments = require('../models/comments.js');
 
 //INDEX (GET POSTS) ROUTE
-//MODIFIED TO PROVIDE IF STATEMENT WITH LAUNCH TO
+//MODIFIED TO PROVIDE IF STATEMENT WITH LAUNCH TO PROFILE PAGE
 router.get('/', async (req, res) => {
   const allPosts = await Posts.find();
       if (req.session.logged = true) {
