@@ -9,7 +9,7 @@ const Posts = require('../models/posts.js');
 const Comments = require('../models/comments.js');
 
 //INDEX (GET POSTS) ROUTE
-//MODIFIED TO PROVIDE IF STATEMENT WITH LAUNCH TO 
+//MODIFIED TO PROVIDE IF STATEMENT WITH LAUNCH TO
 router.get('/', async (req, res) => {
   const allPosts = await Posts.find();
       if (req.session.logged = true) {
@@ -24,15 +24,15 @@ router.get('/new', (req, res) => {
   res.render('../views/home/new.ejs');
 });
 
-// //DB SEEDED CREATE ROUTE
-// router.post('/', async (req, res) => {
-//   try {
-//     const createdPost = await Posts.create(req.body);
-//     res.redirect('back');
-//   } catch (err) {
-//     res.send(err.message);
-//   };
-// });
+//CREATE ROUTE
+router.post('/', async (req, res) => {
+  try {
+    const createdPost = await Posts.create(req.body);
+    res.redirect('/');
+  } catch (err) {
+    res.send(err.message);
+  };
+});
 
 //SHOW ROUTE
 router.get('/:id', async (req, res) => {
