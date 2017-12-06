@@ -7,18 +7,17 @@
     <% include ../partials/header.ejs %>
     <main>
       <form action='/bartenda' method='POST'>
-        <h1>Add your drink</h1>
-        <p>Enter your image URL*</p>
-        <input type='text' name='url' placeholder='Enter URL'/>
-        <p>Name of the bevvy?*</p>
+        <p>Upload your photo<sup>*</sup></p>
+        <input class="imgFile" type="file" accept="image/*" capture="camera" /></button>
+        <p>What's the name of the drink?<sup>*</sup></p>
         <input type='text' name='drinkName' placeholder='Enter the drink name'/>
-        <p>Submitted by?*</p>
+        <p>Submitted by?<sup>*</sup></p>
         <input type='text' name='submittedBy' placeholder='Enter your username'/>
-        <p>Ingredients</p>
+        <p>What's in it?</p>
         <input type='text' name='ingredients' placeholder='Your drink is made of...?'/>
-        <p>Where did you have this bevvy?</p>
+        <p>Where did you drink it?</p>
         <input type='text' name='locationName' placeholder='Business name?'/>
-        <p>What city did you drink it in?</p>
+        <p>City</p>
         <input type='text' name='locationCity' placeholder='City of business?'/>
         <p>And the state? Not mental state, actual US state:</p>
         <input type='text' name='locationState' placeholder='Enter US state'/>
