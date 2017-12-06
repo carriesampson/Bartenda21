@@ -7,8 +7,8 @@
     <% include ../partials/header.ejs %>
     <main>
       <form action='/bartenda' method='POST'>
-        <p>Upload your photo<sup>*</sup></p>
-        <input class="imgFile" type="file" accept="image/*" capture="camera" name='img' />
+        <p>Add a photo<sup>*</sup></p>
+        <input type='text' name='url' class="imgThumb"  placeholder='Your URL' />
         <p>What's the name of the drink?<sup>*</sup></p>
         <input type='text' name='drinkName' placeholder='Enter the drink name'/>
         <p>Submitted by?<sup>*</sup></p>
