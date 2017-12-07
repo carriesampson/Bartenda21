@@ -1,4 +1,5 @@
 /*font-family: 'Aclonica', sans-serif;*/
+/*font-family: 'BenchNine', sans-serif;*/
 
 body {
   background-color: #0000;
@@ -53,10 +54,6 @@ hr {
   padding-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
-}
-
-a {
-  text-decoration: none;
 }
 
 .login {

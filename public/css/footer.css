@@ -3,6 +3,7 @@
 .footer {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   margin-top: 0px;
   background: #000;
   padding-top: 12px;
@@ -12,42 +13,31 @@
 hr {
   margin: 0px;
   padding-top: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 a {
   text-decoration: none;
 }
 
-.privacy {
+.admin {
   font-family: 'Aclonica', sans-serif;
   font-size: 12px;
   padding-top: 10px;
   padding-left: 50px;
-  padding-right: 40px;
+  padding-right: 10px;
   vertical-align: bottom;
   text-decoration: none;
   color: #fff;
 }
 
-.terms {
+.credit {
   font-family: 'Aclonica', sans-serif;
   font-size: 12px;
   padding-top: 10px;
-  padding-left: 40px;
-  padding-right: 40px;
-  vertical-align: bottom;
-  text-decoration: none;
-  color: #fff;
-}
-
-.support{
-  font-family: 'Aclonica', sans-serif;
-  font-size: 12px;
-  padding-top: 10px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
   vertical-align: bottom;
   text-decoration: none;
   color: #fff;
