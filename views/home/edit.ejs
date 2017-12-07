@@ -39,6 +39,11 @@
         <p><button>Submit</button></p>
       </form>
     </main>
+<%# ///DELETE%>
+    <form action="/bartenda/<%=onePost.id%>?_method=DELETE" method="POST">
+       <button>Delete post</button>
+    </form>
+
     <%# Created partial for footer content%>
     <% include ../partials/footer.ejs %>
   </body>

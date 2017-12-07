@@ -2,52 +2,66 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bartenda 21</title>
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
-    <link rel='stylesheet' type='text/css' href='/../../css/header.css'>
+    <title>Bartenda Drink Details</title>
     <link rel='stylesheet' type='text/css' href='/../../css/footer.css'>
     <link rel='stylesheet' type='text/css' href='/../../css/show.css'>
     <link href="https://fonts.googleapis.com/css?family=Aclonica" rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=BenchNine" rel="stylesheet">
   </head>
   <body>
-    <%# Created partial for header content%>
-    <% include ../partials/header.ejs %>
-    <main>
-      <p><a href='/bartenda/new'>Add a drink to the bar</a></p>
-      <p><a href='/bartenda/<%= onePost.id %>/edit'>Edit your post</a></p>
-      <form action="/bartenda/<%=onePost.id%>?_method=DELETE" method="POST">
-         <button>DELETE</button>
-      </form>
-      <div class="mainPost">
-        <img src="<%= onePost.url %>">
-        <h3><%= onePost.drinkName %></h3>
-        <h4><%= onePost.submittedBy %></h4>
-        <p><%= onePost.ingredients %></p>
-        <p><%= onePost.locationName %></p>
-        <p><%= onePost.locationCity %></p>
-        <p><%= onePost.locationState %></p>
-        <p><%= onePost.price %></p>
-        <p><%= onePost.yourComments %></p>
-      </div class="comments">
-        <% for (let comment of comments) { %>
-          <h4><%= comment.submittedBy %></h4>
-          <p><%= comment.content %></p>
-        <% } %>
+    <header>
+      <div class='heroVideo'>
+        <video playsinline autoplay muted loop fade>
+            <source src='../../video/whiskey.webm' type='video/webm'>
+            <source src='../../video/whiskey.mp4' type='video/mp4'>
+        </video>
       </div>
-      <div class="submitComment">
-          <form action="/comments" method="POST">
-            <h3>Submit a comment</h3>
-            <p>Enter your name:</p>
-            <input type="text" name="submittedBy" placeholder="Your name"/>
-            <p>Enter your comment:</p>
-            <input type="text" name="content" placeholder="Your comment"/>
-            <input type="hidden" name="post" value="<%= onePost._id %>"/>
-            <p><button>Submit</button></p>
-          </form>
+      <div class='mainTitle'>
+        <h1 class='titleText' id='titleFont'>BARTENDA <sup>21</sup></h1>
+        <h3 class='subtitleText' id='subtitleFont'>DISCOVER &amp; SHARE</h3>
+      </div>
+      <nav>
+        <a class="home" href="/">Home</a>
+        <hr>
+        <a class='login' href='/login'>Log In</a>
+        <hr>
+        <a class='register' href='/register'>Register</a>
+      </nav>
+    </header>
+    <main>
+      <h1 class="postTitle"><%= onePost.drinkName %></h1>
+      <div class="postHead">
+        <div class="postContent">
+          <img class="submitted" src="<%= onePost.url %>">
+          <h4 class="submitted">Submitted by: <br> <%= onePost.submittedBy %></h4>
         </div>
+      </div>
+      <div class="details">
+        <p class="leadSubtitle">Known Ingredients:</p>
+        <p class="content"><%= onePost.ingredients %></p>
+        <p class="subtitle">Where did you have the drink?</p>
+        <p class="content"><%= onePost.locationName %></p>
+        <p class="subtitle">How much did it cost?</p>
+        <p class="content">$<%= onePost.price %></p>
+        <p class="subtitle">Tell us what you thought of it?</p>
+        <p class="content"><%= onePost.yourComments %></p>
+        <h3 class="addNew"><a href='/bartenda/new'>Add a drink to the bar!</a></h3>
+      </div>
+      <div class="commentsBreaker">
+        <h1 class="comments">Comments...</h1>
+      </div>
+      <div class="postComments">
+        <% for (let comment of comments) { %>
+          <h4 class="commentSubmitted"><%= comment.submittedBy %>: <br><%= comment.content %></h4>
+        <% } %>
+        <h3 class="leaveComment"><a href='/bartenda/#'>Leave a comment here:</a></h3>
+        <form action="/comments" method="POST">
+          <input class="field" type="text" name="submittedBy" placeholder="Your name"/><br>
+          <input class="field"type="text" name="content" placeholder="Your comment"/>
+          <input type="hidden" name="post" value="<%= onePost._id %>"/>
+          <p><button class="commentPost">Submit</button></p>
+        </form>
+      </div>
     </main>
     <%# Created partial for footer content%>
     <% include ../partials/footer.ejs %>
