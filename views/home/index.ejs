@@ -3,39 +3,55 @@
   <head>
     <meta charset="utf-8">
     <title>Bartenda 21</title>
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
     <link rel='stylesheet' type='text/css' href='/../../css/header.css'>
     <link rel='stylesheet' type='text/css' href='/../../css/footer.css'>
     <link rel='stylesheet' type='text/css' href='/../../css/index.css'>
     <link href="https://fonts.googleapis.com/css?family=Aclonica" rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=BenchNine" rel="stylesheet">
   </head>
   <body>
-    <%# Created partial for header content%>
-    <% include ../partials/header.ejs %>
+    <header>
+      <div class='heroVideo'>
+        <video playsinline autoplay muted loop fade>
+            <source src='../../video/whiskey.webm' type='video/webm'>
+            <source src='../../video/whiskey.mp4' type='video/mp4'>
+        </video>
+      </div>
+      <a href='/'>
+      <div class='mainTitle'>
+        <h1 class='titleText' id='titleFont'>BARTENDA <sup>21</sup></h1>
+        <h3 class='subtitleText' id='subtitleFont'>DISCOVER &amp; SHARE</h3>
+      </div></a>
+      <nav>
+        <a class='login' href='/login'>log in</a>
+        <hr>
+        <a class='register' href='/register'>register</a>
+      </nav>
+    </header>
     <main>
-      <div class='col1'>
+      <div class='loggedIn'>
         <% if (currentUser) { %>
-          <h3>Welcome <%= currentUser.username %>!</h3>
+          <h2 class="welcome">Welcome <%= currentUser.username %>.</h2>
           <% } else { %>
-            <h3>Welcome!</h3>
+            <h2 class="welcome">Welcome.</h2>
           <% } %>
+        <% if (currentUser) { %>
+          <h3 class="mgmt"><a href="/dash">Manage your posts</a><h3>
+        <% } %>
         <% if (currentUser) { %>
           <form action="/login?_method=DELETE" method='POST'>
             <input type='submit' value='Log out' />
           </form>
         <% } %>
-        <% if (currentUser) { %>
-          <h3><a href="/dash">Manage your posts</a><h3>
-        <% } %>
       </div>
-      <div class='col2'>
+      <div class='posts'>
         <% for (let post of allPosts) { %>
-          <a href='/bartenda/<%= post._id %>'><img src='<%= post.url %>'></a>
-          <h3><%= post.drinkName %></h3>
-          <h4><%= post.submittedBy %></h4>
+          <div class="postContent">
+            <a href='bartenda/<%= post._id %>'><img src='<%= post.url %>'>
+            <h3 class="postTitle"><%= post.drinkName %></h3>
+            <p class="submitted">Submitted by: <%= post.submittedBy %></p>
+            </a>
+          </div>
         <% } %>
       </div>
     </main>

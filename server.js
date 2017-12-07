@@ -28,7 +28,7 @@ const postController    = require('./controllers/posts.js');
 const commController    = require('./controllers/comments.js');
 const loginController   = require('./controllers/login.js');
 const regController     = require('./controllers/reg.js');
-const dashController    = require('./controllers/dash.js');
+// const dashController    = require('./controllers/dash.js');
 
 //MIDDLEWARE
 app.use(express.urlencoded({ extended: false}));
@@ -45,7 +45,7 @@ app.use('/bartenda', postController);
 app.use('/comments', commController);
 app.use('/login', loginController);
 app.use('/register', regController);
-app.use('/dash', dashController);
+// app.use('/dash', dashController);
 
 //TEST ROUTE
 app.get('/test', (req, res) => {
