@@ -1,16 +1,26 @@
 <%# <!DOCTYPE ejs>%>
 <html>
-  <%# Created partial for head content%>
-  <% include ../partials/head.ejs %>
+  <head>
+    <meta charset="utf-8">
+    <title>Bartenda 21</title>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <link rel='stylesheet' type='text/css' href='/../../css/header.css'>
+    <link rel='stylesheet' type='text/css' href='/../../css/footer.css'>
+    <link rel='stylesheet' type='text/css' href='/../../css/index.css'>
+    <link href="https://fonts.googleapis.com/css?family=Aclonica" rel='stylesheet'>
+  </head>
   <body>
     <%# Created partial for header content%>
     <% include ../partials/header.ejs %>
     <main>
       <div class='col1'>
         <% if (currentUser) { %>
-          <h3>Welcome <%= currentUser.username %>.</h3>
+          <h3>Welcome <%= currentUser.username %>!</h3>
           <% } else { %>
-            <h3>Welcome</h3>
+            <h3>Welcome!</h3>
           <% } %>
         <% if (currentUser) { %>
           <form action="/login?_method=DELETE" method='POST'>
