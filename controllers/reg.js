@@ -11,12 +11,6 @@ router.get('/', (req, res) => {
   res.render('users/reg.ejs');
 });
 
-// //REGISTRATION CREATE ROUTE
-// router.post('/', async (req, res) => {
-//   await Users.create(req.body);
-//   res.redirect('/');
-// }) ;
-
 //REGISTRATION POST/ENCRYPT ROUTE
 router.post('/', async (req, res) => {
   const emailAddress = req.body.emailAddress;
@@ -25,7 +19,6 @@ router.post('/', async (req, res) => {
   const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
   console.log("Email address Salt: ", emailAddressHash);
   console.log("Password Salt: ", passwordHash);
-
 
   //CREATE MONGO DB OBJECT
   const userDbEntry = {};
@@ -40,6 +33,7 @@ router.post('/', async (req, res) => {
     req.session.emailAddress = req.body.emailAddress;
     req.session.logged = true;
     res.redirect("/");
+    console.log(upload);
   } catch (err) {
     res.send(err.message);
   }
