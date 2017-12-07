@@ -1,1 +1,25 @@
-<%# <!DOCTYPE html>%>
+<%# <!DOCTYPE ejs>%>
+<html>
+<%# Created partial for head content%>
+<% include ../partials/head.ejs %>
+  <body>
+    <%# Created partial for header content%>
+    <% include ../partials/header.ejs %>
+    <main>
+      <div class="userPosts">
+        <% for (let post of userPosts) { %>
+          <a href='/bartenda/<%= post._id %>'><img src='<%= post.url %>'></a>
+          <h3><%= post.drinkName %></h3>
+          <h4><%= post.submittedBy %></h4>
+          <p><%= post.ingredients %></p>
+          <p><%= post.locationName %></p>
+          <p><%= post.locationCity %></p>
+          <p><%= post.locationState %></p>
+          <p><%= post.price %></p>
+          <p><%= post.yourComments %></p>
+        <% } %>
+    </main>
+    <%# Created partial for footer content%>
+    <% include ../partials/footer.ejs %>
+  </body>
+</html>
