@@ -1,5 +1,3 @@
-//REGISTRATION CONTROLLER
-
 //DEPENDENCIES
 const express         = require('express');
 const bcrypt          = require('bcrypt');
@@ -8,12 +6,18 @@ const router          = express.Router();
 //MODELS
 const Users           = require('../models/users.js');
 
-//GET ROUTE
+//REGISTRATION GET ROUTE
 router.get('/', (req, res) => {
-  res.render('../views/users/reg.ejs');
+  res.render('users/reg.ejs');
 });
 
-//POST ROUTE ENCRYPTION
+// //REGISTRATION CREATE ROUTE
+// router.post('/', async (req, res) => {
+//   await Users.create(req.body);
+//   res.redirect('/');
+// }) ;
+
+//REGISTRATION POST/ENCRYPT ROUTE
 router.post('/', async (req, res) => {
   const emailAddress = req.body.emailAddress;
   const emailAddressHash = bcrypt.hashSync(emailAddress, bcrypt.genSaltSync(10));
@@ -21,6 +25,7 @@ router.post('/', async (req, res) => {
   const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
   console.log("Email address Salt: ", emailAddressHash);
   console.log("Password Salt: ", passwordHash);
+
 
   //CREATE MONGO DB OBJECT
   const userDbEntry = {};
@@ -31,8 +36,8 @@ router.post('/', async (req, res) => {
   //UPLOAD MONGO DB OBJECT
   try {
     const upload = await Users.create(userDbEntry);
-    req.session.username = upload.username;
-    req.session.emailAddress = upload.emailAddress;
+    req.session.username = req.body.username;
+    req.session.emailAddress = req.body.emailAddress;
     req.session.logged = true;
     res.redirect("/");
   } catch (err) {

@@ -1,37 +1,41 @@
-//LOGIN CONTROLLER
-
 //DEPENDENCIES
 const express         = require('express');
 const bcrypt          = require('bcrypt');
 const router          = express.Router();
 
 //MODELS
-const Users = require('../models/users.js');
+const Users           = require('../models/users.js');
 
-//GET ROUTE
+//LOGIN GET ROUTE
 router.get ('/', (req, res) => {
   res.render('../views/users/login.ejs');
 });
 
-//POST ROUTE
-router.post ('/', async (req, res) => {
-  const user = await Users.findOne({username: req.body.username});
-  console.log(user);
-  if (bcrypt.compareSync(req.body.password, user.password)) {
-      req.session.username = req.body.username;
-      req.session.emailAddress = req.body.emailAddress;
-      req.session.logged = true;
-      // console.log("Req Session/Body: ", req.session, req.body);
-      console.log("Login success");
+//LOGIN POST/CREATE SESSION ROUTE
+router.post('/', async (req, res) => {
+  console.log(req.body);
+  const foundUser = await Users.findOne({username: req.body.username});
+  console.log(foundUser);
+    if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+      console.log("inside if");
+      req.session.currentUser = foundUser;
       res.redirect('/');
-      } else {
-        console.log('Login fail bcrypt compare');
-        res.redirect('/login');
+    } else {
+      res.send('wrong password');
     };
 });
 
-//LOGOUT----------------------------------------------
-router.delete ('/logout', (req, res) => {
+//POST MANAGEMENT PAGE GET ROUTE
+router.get('/dash', (req, res) => {
+  if (req.session.currentUser) {
+    res.render('..views/home/dash.ejs');
+  } else {
+    res.redirect('/sessions/login');
+  };
+});
+
+//LOGIN DELETE SESSION ROUTE
+router.delete ('/', (req, res) => {
   req.session.destroy();
   res.redirect('/');
 });

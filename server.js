@@ -3,6 +3,7 @@ const express         = require('express');
 const mongoose        = require('mongoose')
 const methodOverride  = require('method-override');
 const session         = require('express-session');
+const ejsLint         = require('ejs-lint');
 require('dotenv').config()
 require('pretty-error').start();
 const bcrypt          = require('bcrypt');
@@ -28,9 +29,6 @@ const commController    = require('./controllers/comments.js');
 const loginController   = require('./controllers/login.js');
 const regController     = require('./controllers/reg.js');
 
-//ROOT DIRECTORY
-app.get('/', (req, res) => res.redirect('/bartenda'));
-
 //MIDDLEWARE
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
@@ -46,6 +44,14 @@ app.use('/bartenda', postController);
 app.use('/comments', commController);
 app.use('/login', loginController);
 app.use('/register', regController);
+
+//TEST ROUTE
+app.get('/test', (req, res) => {
+  res.send(req.session);
+});
+
+//ROOT DIRECTORY
+app.get('/', (req, res) => res.redirect('bartenda'));
 
 //PASSWORD ENCRYPTION------------------
 const hashedStringP = bcrypt.hashSync('<%= password %>', bcrypt.genSaltSync(10));

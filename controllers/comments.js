@@ -1,10 +1,12 @@
+//COMMENTS CONTROLLER
+
 //DEPENDENCIES
-const express = require("express");
-const router = express.Router();
+const express     = require("express");
+const router      = express.Router();
 
 //MODELS
-const Posts = require('../models/posts.js');
-const Comments = require('../models/comments.js');
+const Posts       = require('../models/posts.js');
+const Comments    = require('../models/comments.js');
 
 //INDEX ROUTE
 router.get('/', async (req, res) => {

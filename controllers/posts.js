@@ -1,25 +1,20 @@
 //POSTS CONTROLLER
 
 //DEPENDENCIES
-const express = require('express');
-const router  = express.Router();
+const express   = require('express');
+const router    = express.Router();
 
 //MODELS
-const Posts = require('../models/posts.js');
-const Comments = require('../models/comments.js');
+const Posts     = require('../models/posts.js');
+const Comments  = require('../models/comments.js');
 
 //INDEX (GET POSTS) ROUTE
-//MODIFIED TO PROVIDE IF STATEMENT WITH LAUNCH TO PROFILE PAGE
 router.get('/', async (req, res) => {
   const allPosts = await Posts.find();
-      if (req.session.logged = true) {
-        res.render('../views/users/profile.ejs', {allPosts: allPosts, emailAddress: req.session.emailAddress, username: req.session.username})
-      } else {
-      res.render('../views/home/index.ejs', {allPosts: allPosts})
-    };
+  res.render('home/index.ejs', {allPosts: allPosts, currentUser: req.session.currentUser})
 });
 
-//CREATE NEW
+//CREATE NEW (ADD DRINK PAGE RENDER)
 router.get('/new', (req, res) => {
   res.render('../views/home/new.ejs');
 });
@@ -71,5 +66,6 @@ router.delete('/:id', async (req, res) => {
   };
 });
 
+//----------------------------------------------------
 //EXPORTS
 module.exports = router;
