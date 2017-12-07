@@ -8,6 +8,9 @@
     <main>
       <p><a href='/bartenda/new'>Add a drink to the bar</a></p>
       <p><a href='/bartenda/<%= onePost.id %>/edit'>Edit your post</a></p>
+      <form action="/bartenda/<%=onePost.id%>?_method=DELETE" method="POST">
+         <button>DELETE</button>
+      </form>
       <div class="mainPost">
         <img src="<%= onePost.url %>">
         <h3><%= onePost.drinkName %></h3>
