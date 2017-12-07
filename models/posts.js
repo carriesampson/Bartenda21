@@ -6,12 +6,10 @@ const postSchema = mongoose.Schema({
   url: {type: String , require: true},
   drinkName: {type: String, require: true},
   submittedBy: {type: String, require: true},
-  ingredients: String,
+  ingredients: {type: String, require: true},
   locationName: {type: String, require: true},
-  locationCity: {type: String, require: true},
-  locationState: {type: String, require: true},
-  price: {type: Number, require: true},
-  yourComments: String
+  price: Number,
+  yourComments: {type: String, require: true}
 });
 
 //EXPORTS

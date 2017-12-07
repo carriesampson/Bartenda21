@@ -45,16 +45,16 @@
         <p class="content">$<%= onePost.price %></p>
         <p class="subtitle">Tell us what you thought of it?</p>
         <p class="content"><%= onePost.yourComments %></p>
-        <h3 class="addNew"><a href='/bartenda/new'>Add a drink to the bar!</a></h3>
       </div>
+      <h3 class="addNew"><a href='/bartenda/new'>Add a drink to the bar!</a></h3>
       <div class="commentsBreaker">
-        <h1 class="comments">Comments...</h1>
+        <h3 class="comments">Or, see comments on this post...</h3>
       </div>
       <div class="postComments">
         <% for (let comment of comments) { %>
           <h4 class="commentSubmitted"><%= comment.submittedBy %>: <br><%= comment.content %></h4>
         <% } %>
-        <h3 class="leaveComment"><a href='/bartenda/#'>Leave a comment here:</a></h3>
+        <h3 class="leaveComment">Leave a comment here:</h3>
         <form action="/comments" method="POST">
           <input class="field" type="text" name="submittedBy" placeholder="Your name"/><br>
           <input class="field"type="text" name="content" placeholder="Your comment"/>
@@ -63,7 +63,12 @@
         </form>
       </div>
     </main>
-    <%# Created partial for footer content%>
-    <% include ../partials/footer.ejs %>
+    <footer>
+      <div class="footer">
+        <a class='admin' href='/bartenda/<%= onePost.id %>/edit'>Admin</a>
+        <hr>
+        <a class='credit-global' href='/terms'>Designed and Created by Carrie Sampson &copy;2017</a>
+      </div>
+    </footer>
   </body>
 </html>

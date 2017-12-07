@@ -3,10 +3,9 @@ const mongoose = require("mongoose");
 
 //REGISTRATION SCHEMA
 const userSchema = new mongoose.Schema({
-  username: {type: String, require: true},
-  emailAddress: {type: String, require: true},
+  username: {type: String, require: true, unique: true},
+  emailAddress: {type: String, require: true, unique: true},
   password: {type: String, require: true},
-  retypePassword: {type: String, require: true}
 });
 
 //EXPORTS

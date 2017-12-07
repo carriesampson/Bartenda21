@@ -29,9 +29,9 @@
     <main>
       <div class='loggedIn'>
         <% if (currentUser) { %>
-          <h2 class="welcome">Welcome <%= currentUser.username %>.</h2>
+          <h1 class="welcome">Welcome <%= currentUser.username %>.</h1>
           <% } else { %>
-            <h2 class="welcome">Welcome.</h2>
+            <h1 class="welcome">Welcome.</h1>
           <% } %>
         <% if (currentUser) { %>
           <h3 class="mgmt"><a href="/dash">Manage your posts</a><h3>
@@ -53,7 +53,10 @@
         <% } %>
       </div>
     </main>
-    <%# Created partial for footer content%>
-    <% include ../partials/footer.ejs %>
+    <footer>
+      <div class="footer">
+        <a class='credit-home' href='/terms'>Designed and Created by Carrie Sampson &copy;2017</a>
+      </div>
+    </footer>
   </body>
 </html>

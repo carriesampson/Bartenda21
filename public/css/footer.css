@@ -6,7 +6,7 @@
   justify-content: center;
   margin-top: 0px;
   background: #000;
-  padding-top: 12px;
+  padding-top: 10px;
   padding-bottom: 10px;
 }
 
@@ -21,24 +21,25 @@ a {
   text-decoration: none;
 }
 
-.admin {
-  font-family: 'Aclonica', sans-serif;
-  font-size: 12px;
+.admin,
+.credit-home {
+  font-family: 'BenchNine', sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
   padding-top: 10px;
   padding-left: 50px;
   padding-right: 10px;
   vertical-align: bottom;
-  text-decoration: none;
-  color: #fff;
 }
 
-.credit {
-  font-family: 'Aclonica', sans-serif;
-  font-size: 12px;
+.credit-global {
+  font-family: 'BenchNine', sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
   vertical-align: bottom;
-  text-decoration: none;
-  color: #fff;
 }
