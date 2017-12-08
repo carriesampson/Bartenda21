@@ -3,41 +3,57 @@
   <head>
     <meta charset="utf-8">
     <title>Bartenda 21</title>
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
-    <link rel='stylesheet' type='text/css' href='/../../css/header.css'>
     <link rel='stylesheet' type='text/css' href='/../../css/footer.css'>
     <link rel='stylesheet' type='text/css' href='/../../css/new.css'>
     <link href="https://fonts.googleapis.com/css?family=Aclonica" rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=BenchNine" rel="stylesheet">
   </head>
   <body>
-    <%# Created partial for header content%>
-    <% include ../partials/header.ejs %>
+    <header>
+      <div class='heroVideo'>
+        <video playsinline autoplay muted loop fade>
+            <source src='../../video/whiskey.webm' type='video/webm'>
+            <source src='../../video/whiskey.mp4' type='video/mp4'>
+        </video>
+      </div>
+      <div class='mainTitle'>
+        <h1 class='titleText' id='titleFont'>BARTENDA <sup>21</sup></h1>
+        <h3 class='subtitleText' id='subtitleFont'>DISCOVER &amp; SHARE</h3>
+      </div>
+      <nav>
+        <a class="home" href="/">Home</a>
+        <hr>
+        <a class='login' href='/login'>Log In</a>
+        <hr>
+        <a class='register' href='/register'>Register</a>
+      </nav>
+    </header>
     <main>
-      <form action='/bartenda' method='POST'>
-        <p>Add a photo<sup>*</sup></p>
-        <input type='text' name='url' class="imgThumb"  placeholder='Your URL' />
-        <p>What's the name of the drink?<sup>*</sup></p>
-        <input type='text' name='drinkName' placeholder='Enter the drink name'/>
-        <p>Submitted by?<sup>*</sup></p>
-        <input type='text' name='submittedBy' placeholder='Enter your username'/>
-        <p>What's in it?</p>
-        <input type='text' name='ingredients' placeholder='Your drink is made of...?'/>
-        <p>Where did you drink it?</p>
-        <input type='text' name='locationName' placeholder='Business name?'/>
-        <p>City</p>
-        <input type='text' name='locationCity' placeholder='City of business?'/>
-        <p>And the state? Not mental state, actual US state:</p>
-        <input type='text' name='locationState' placeholder='Enter US state'/>
-        <p>The cost in dollars and cents, not brain cells:</p>
-        <input type='number' name='price' placeholder='Price'/>
-        <p>Comment on your drink</p>
-        <input type='text' name='yourComments' placeholder='Comment on your drink'/>
-        <p><button>Submit</button></p>
-      </form>
-      <%# Created partial for footer content%>
-      <% include ../partials/footer.ejs %>
+      <div class="details">
+        <h2 class="postTitle">Add your drink!</h2>
+        <form action='/bartenda' method='POST'>
+          <p class="subtitle">Add a photo URL<sup>*</sup></p>
+          <input class="field" type='text' name='url' class="imgThumb"  placeholder='Your hosted URL (try imgur)' />
+          <p class="subtitle">What's the name of the drink?<sup>*</sup></p>
+          <input class="field" type='text' name='drinkName' placeholder='Enter name'/>
+          <p class="subtitle">Submitted by?<sup>*</sup></p>
+          <input class="field" type='text' name='submittedBy' placeholder='Your username'/>
+          <p class="subtitle">What's in it? List the ingredients you know of, with commas between<sup>*</sup></p>
+          <input class="field" type='text' name='ingredients' placeholder='Your drink is made of...?'/>
+          <p class="subtitle">Where did you have this drink?<sup>*</sup></p>
+          <input class="field" type='text' name='locationName' placeholder='Location, city, state'/>
+          <p class="subtitle">The cost in dollars and cents (not brain cells):</p>
+          <input class="field" type='number' name='price' placeholder='Price'/>
+          <p class="subtitle">Comment on your drink<sup>*</sup></p>
+          <input class="field" type='text' name='yourComments' placeholder='Comment on your drink. Good, bad, pricey?'/>
+        </form>
+      </div>
+      <a class="cancelAdd" href="/">Cancel</a>
+      <button class="submitAdd">Submit</button>
+      <footer>
+        <div class="footer">
+          <a class='credit-global' href='/terms'>Designed and Created by Carrie Sampson &copy;2017</a>
+        </div>
+      </footer>
   </body>
 </html>
