@@ -27,6 +27,9 @@
       </nav>
     </header>
     <main>
+      <% if (currentUser) { %>
+        <h3 class="addNew"><a href='/bartenda/new'>Add a drink to the bar!</a></h3>
+      <% } %>
       <div class='loggedIn'>
         <% if (currentUser) { %>
           <h1 class="welcome">Welcome, <%= currentUser.username %>.</h1>
