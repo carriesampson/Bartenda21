@@ -133,6 +133,12 @@ a:hover {
 
 .quickIntro {
   padding-top: 10px;
+  margin-bottom: 5px;
+  line-height: 34px;
+}
+
+.regCTA {
+  padding-top: 5px;
   margin-bottom: 40px;
   line-height: 34px;
 }
