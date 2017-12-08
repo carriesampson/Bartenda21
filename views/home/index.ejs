@@ -33,14 +33,6 @@
           <% } else { %>
             <h1 class="welcome">Welcome.</h1>
           <% } %>
-        <% if (currentUser) { %>
-          <h3 class="mgmt"><a href="/dash">Manage your posts</a><h3>
-        <% } %>
-        <% if (currentUser) { %>
-          <form action="/login?_method=DELETE" method='POST'>
-            <input type='submit' value='Log out' />
-          </form>
-        <% } %>
       </div>
       <div class='posts'>
         <% for (let post of allPosts) { %>
