@@ -39,24 +39,24 @@
       </div>
       <div class="details">
         <form action='/bartenda/<%= post.id %>?_method=PUT', method='POST'>
-        <p class="subtitle">Change the photo URL?<sup>*</sup></p>
-        <input class="field" type='text' name='url' value='<%= post.url %>'/>
-        <p class="subtitle">Update drink name?<sup>*</sup></p>
-        <input class="field" type='text' name='drinkName' value='<%= post.drinkName %>'/>
-        <p class="subtitle">Update 'Submitted by'?<sup>*</sup></p>
-        <input class="field" type='text' name='submittedBy' value='<%= post.submittedBy %>'/>
-        <p class="subtitle">Update Known Ingredients?</p>
-        <input class="field" type='text' name='ingredients' value='<%= post.ingredients %>'/>
-        <p class="subtitle">Where did you have this drink?<sup>*</sup></p>
-        <input class="field" type='text' name='locationName' value='<%= post.locationName %>'/>
-        <p class="subtitle">How much did it cost?</p>
-        <input class="field"type='number' name='price' value='<%= post.price %>'/>
-        <p class="subtitle">Update the comments on this drink?</p>
-        <input class="field" type='text' name='yourComments' value='<%= post.yourComments %>'/>
+          <p class="subtitle">Change the photo URL?<sup>*</sup></p>
+          <input class="field" type='text' name='url' value='<%= post.url %>'/>
+          <p class="subtitle">Update drink name?<sup>*</sup></p>
+          <input class="field" type='text' name='drinkName' value='<%= post.drinkName %>'/>
+          <p class="subtitle">Update 'Submitted by'?<sup>*</sup></p>
+          <input class="field" type='text' name='submittedBy' value='<%= post.submittedBy %>'/>
+          <p class="subtitle">Update Known Ingredients?</p>
+          <input class="field" type='text' name='ingredients' value='<%= post.ingredients %>'/>
+          <p class="subtitle">Where did you have this drink?<sup>*</sup></p>
+          <input class="field" type='text' name='locationName' value='<%= post.locationName %>'/>
+          <p class="subtitle">How much did it cost?</p>
+          <input class="field"type='number' name='price' value='<%= post.price %>'/>
+          <p class="subtitle">Update the comments on this drink?</p>
+          <input class="field" type='text' name='yourComments' value='<%= post.yourComments %>'/>
+          <button class="updatePost" href="/">Cancel changes</button>
+          <button class='updatePost'>Submit</button>
+        </form>
       </div>
-      <a class="updatePost" href="/">Cancel changes</a>
-      <p><button class='updatePost'>Submit</button></p>
-      </form>
       <form action="/bartenda/<%= post.id %>?_method=DELETE" method="POST">
          <button class="updatePost">Delete post</button>
       </form>
