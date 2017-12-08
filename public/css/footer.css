@@ -19,6 +19,11 @@ hr {
 
 a {
   text-decoration: none;
+  cursor: default;
+}
+
+a:hover {
+  color: #A4310D;
 }
 
 .admin,

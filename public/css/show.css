@@ -6,6 +6,7 @@ body {
   max-width: 1000px;
   margin: auto;
   height: auto;
+  cursor: default;
 }
 
 video {
@@ -171,7 +172,7 @@ form {
   font-family: 'Aclonica', sans-serif;
   font-size: 20px;
   text-align: center;
-  background-color: #BF6947;
+  background-color: #e5ae9e;
   padding-top: 12px;
   padding-bottom: 12px;
   margin-bottom: 0px;
@@ -180,6 +181,10 @@ form {
 a {
   text-decoration: none;
   color: #000;
+}
+
+a:hover {
+  color: #A4310D;
 }
 
 .comments {
@@ -239,8 +244,15 @@ a {
 }
 
 .commentPost {
+  display: flex;
+  justify-content: center;
+  margin: auto;
   font-family: 'Aclonica', sans-serif;
   font-size: 14px;
   padding: 15px;
-  background-color: #BF6947;
+  background-color: #e5ae9e;
+}
+
+.commentPost:hover {
+  color: #A4310D;
 }

@@ -29,17 +29,18 @@
     <main>
       <div class='loggedIn'>
         <% if (currentUser) { %>
-          <h1 class="welcome">Welcome <%= currentUser.username %>.</h1>
+          <h1 class="welcome">Welcome <%= currentUser.username %></h1>
           <% } else { %>
             <h1 class="welcome">Welcome.</h1>
+          <h2 class="quickIntro">Click on any of the posts below to read more, including location, price and comments. Just people helping people, to avoid the nasty cocktails, and find the best craft beer. Enjoy!</h2>
           <% } %>
       </div>
       <div class='posts'>
         <% for (let post of allPosts) { %>
           <div class="postContent">
-            <a href='bartenda/<%= post._id %>'><img src='<%= post.url %>'>
-            <h3 class="postTitle"><%= post.drinkName %></h3>
-            <p class="submitted">Submitted by: <%= post.submittedBy %></p>
+            <a class="hover" href='bartenda/<%= post._id %>'><img src='<%= post.url %>'>
+              <h3 class="postTitle"><%= post.drinkName %></h3>
+              <p class="submitted">Submitted by: <%= post.submittedBy %></p>
             </a>
           </div>
         <% } %>
