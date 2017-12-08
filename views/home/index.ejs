@@ -21,7 +21,9 @@
         <h3 class='subtitleText' id='subtitleFont'>DISCOVER &amp; SHARE</h3>
       </div>
       <nav>
-        <a class='login' href='/login'>Log in</a>
+        <a class="home" href="/">Home</a>
+        <hr>
+        <a class='login' href='/login'>Log In</a>
         <hr>
         <a class='register' href='/register'>Register</a>
       </nav>
@@ -31,12 +33,17 @@
         <h3 class="addNew"><a href='/bartenda/new'>Add a drink to the bar!</a></h3>
       <% } %>
       <div class='loggedIn'>
-        <% if (currentUser) { %>
+          <% if (currentUser) { %>
           <h1 class="welcome">Welcome, <%= currentUser.username %>.</h1>
           <% } else { %>
             <h1 class="welcome">Welcome.</h1>
-          <h2 class="quickIntro">Click on any of the posts below to read more, including location, price and comments. Just people helping people, to avoid the nasty cocktails, and find the best craft beer.</h2>
-          <h2 class="regCTA">Register and log in to post one yourself! Enjoy!</h2>
+            <h2 class="quickIntro">Click on any of the posts below to read more, including location, price and comments. Just people helping people, to avoid the nasty cocktails, and find the best craft beer.</h2>
+            <h2 class="regCTA">Register and log in to post one yourself! Enjoy!</h2>
+          <% } %>
+          <% if (currentUser) { %>
+            <form action="/login?_method=DELETE" method='POST'>
+            <input class="logout" type='submit' value='Log out' />
+            </form>
           <% } %>
       </div>
       <div class='posts'>

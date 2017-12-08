@@ -57,27 +57,29 @@ hr {
   margin-right: 20px;
 }
 
-.login {
+.home {
   font-family: 'Aclonica', sans-serif;
   font-size: 16px;
   padding-top: 10px;
   padding-left: 50px;
-  padding-right: 20px;
+  padding-right: 10px;
   vertical-align: bottom;
   text-decoration: none;
   color: #fff;
 }
 
+.login,
 .register {
   font-family: 'Aclonica', sans-serif;
   font-size: 16px;
   padding-top: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   vertical-align: bottom;
   text-decoration: none;
   color: #fff;
 }
+
 
 /*------------------------------*/
 main {
